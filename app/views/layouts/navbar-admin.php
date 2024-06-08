@@ -44,7 +44,7 @@
   <nav id="navbar-custom" class="w-full fixed-top navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="http://localhost/phpmvc/app/uploads/logotext.png" alt="Logo"  class="d-inline-block align-text-top">
+            <img src="<?=BASEURL?>/uploads/logotext.png" alt="Logo"  class="d-inline-block align-text-top">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -55,17 +55,17 @@
                         <a class="nav-link" href="<?=BASEURL?>/admin">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?=BASEURL?>/admin/blog">Manage Blog</a>
+                        <a class="nav-link" href="<?=BASEURL?>/adminBlog">Manage Blog</a>
                     </li>
                     <?php if (isset($_SESSION['user_id'])) : ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=BASEURL?>/admin/product">Manage Product</a>
+                            <a class="nav-link" href="<?=BASEURL?>/adminProduct">Manage Product</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?=BASEURL?>/admin#bottomSect">Order</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="<?=BASEURL?>/auth/logout" onclick="return confirm('Apakah Anda Yakin Ingin Logout?')">Logout</a></li>
-                        <!-- <li class="nav-item dropdown">
+                        <!-- <li class="nav-item"><a class="nav-link" href="<?=BASEURL?>/auth/logout" onclick="return confirm('Apakah Anda Yakin Ingin Logout?')">Logout</a></li> -->
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Profil
                             </a>
@@ -74,9 +74,9 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="<?=BASEURL?>/auth/logout">Logout</a></li>
+                                <li><a class="dropdown-item" href="<?=BASEURL?>/auth/logout" onclick="return confirm('Apakah Anda Yakin Ingin Logout?')">Logout</a></li>
                             </ul>
-                        </li> -->
+                        </li>
                     <?php else : ?>
                         <li class="nav-item">
                             <a class="nav-link" href="<?=BASEURL?>/auth/login">Login</a>
@@ -102,11 +102,8 @@
             }
         });
     </script>
-
-
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
   </body>
+
 </html>

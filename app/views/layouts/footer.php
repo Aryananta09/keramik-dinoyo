@@ -32,7 +32,7 @@
     <div class="container mt-5 footer">
       <div class="row">
         <div class="mt-5 col-lg-3">
-          <img src="http://localhost/phpmvc/app/uploads/logotext.png" alt="Logo" class="img-fluid mb-3">
+          <img src="<?=BASEURL?>/uploads/logotext.png" alt="Logo" class="img-fluid mb-3">
         </div>
         <div>
           <p class="mt-5 mb-0">Universitas Brawijaya</p>

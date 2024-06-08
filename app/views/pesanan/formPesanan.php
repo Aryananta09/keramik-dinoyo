@@ -75,38 +75,36 @@
 <div class="form-container p-3">
 <div class="mb-3">
     <p class="form-desc">Silahkan isi pesanan anda<p>
+  <input type="hidden" name="user_id" value="<?= $_SESSION['user_id']; ?>">
+  <label for="tanggal">Tanggal Pesan</label>
+  <input type="date" value="today" class="form-control" name="tanggal" id="tanggal" placeholder="Tanggal Pesan" readonly>
+        
+  <br> 
   <label for="inputNama" class="form-label">Nama</label>
-  <input type="nama" class="form-control" id="inputNama" placeholder="Ketik disini">
+  <input type="nama" name="nama"class="form-control" id="inputNama" placeholder="Ketik disini">
 
   <label for="inputAlamat" class="form-label mt-3">Alamat</label>
-  <input type="nama" class="form-control" id="inputAlamat" placeholder="Ketik disini">
+  <input type="nama" name="alamat" class="form-control" id="inputAlamat" placeholder="Ketik disini">
 
   <label for="inputTelp" class="form-label mt-3">No. Telp</label>
-  <input type="nama" class="form-control" id="inputTelp" placeholder="Ketik disini">
+  <input type="nama" name="nomer" class="form-control" id="inputTelp" placeholder="Ketik disini">
 
   <label for="input" class="form-label mt-3">Produk yang dipesan</label>
   <div class="row g-2">
     <div class="col-9">
-    <select class="form-select" aria-label="produkSelect">
+    <select class="form-select" id="produkSelect" name="produk" aria-label="produkSelect">
   <option selected>Pilih Produk</option>
-  <option value="1">Vas Bunga</option>
-  <option value="2">Gelas</option>
-  <option value="3">Piring</option>
-  <option value="3">Guci</option>
-  <option value="4">Teko</option>
-  <option value="5">Pot</option>
+  <?php foreach($data['produk'] as $produk) : ?>
+  <option ><?= $produk['nama']?></option>
+  <?php endforeach; ?>
+  <input type="hidden" name="id_produk" id="id_produk">
 </select>
 </div>
 <div class="col-3">
-<select class="form-select" aria-label="jumlahSelect">
-  <option selected>Jumlah</option>
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-  
-</select>
+<div class="form-group">
+          <label for="ammount">Jumlah</label>
+          <input type="number" id="ammount" name="jumlah" placeholder="Jumlah Produk" />
+</div>
 </div>
 </div>
 </div>
@@ -118,11 +116,13 @@
 <p class="form-desc">Silahkan pilih metode pembayaran<p>
 <label for="form-desc" class="form-label">Metode Pembayaran</label>
 <div class="col-3">
-<select class="form-select" aria-label="metodeSelect">
+<select class="form-select" id="metodeSelect" name="metode" aria-label="metodeSelect">
   <option selected>Metode Pembayaran</option>
-  <option value="1">Bank</option>
-  <option value="2">E-Wallet</option>
+  <?php foreach($data['metode'] as $metode) : ?>
+  <option value="<?php echo $metode['pembayaran_id']?>" > <?php echo $metode['nama_bank']?></option>
+  <?php endforeach; ?>
 </select>
+<input type="hidden" name="nama_metode" id="nama_metode">
 </div>
 </div> 
 <div class="container mt-5">
@@ -136,11 +136,36 @@
 
 <!-- Footer -->
 <?php include __DIR__ . '/../layouts/footer.php'; ?>
+<script>
+        // Fungsi untuk mendapatkan tanggal hari ini dalam format YYYY-MM-DD
+        function getTodayDate() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        // Atur nilai input tanggal menjadi tanggal hari ini
+        document.getElementById('tanggal').value = getTodayDate();
+    </script>
                 
+<script>
+document.getElementById('metodeSelect').addEventListener('change', function() {
+    var select = this;
+    var selectedOption = select.options[select.selectedIndex];
+    var namaMetode = selectedOption.textContent.trim(); // Menghapus spasi di awal dan akhir
+    document.getElementById('nama_metode').value = namaMetode;
+});
+document.getElementById('produkSelect').addEventListener('change', function() {
+    var select = this;
+    var selectedOption = select.options[select.selectedIndex];
+    var idProduk = selectedOption.value;
+    document.getElementById('id_produk').value = idProduk;
+});
+</script>
 
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
   </body>
 </html>

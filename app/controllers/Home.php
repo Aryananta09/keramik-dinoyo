@@ -2,6 +2,7 @@
 
 class Home extends Controller {
     public function index(){
-        $this->view('home/index');
+        $data['produk'] = $this->Model('ProdukModel') -> getAllProduk();
+        $this->view('home/index', $data);
    }
 }

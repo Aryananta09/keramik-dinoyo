@@ -9,8 +9,8 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet"/>
-    <title>Add Product</title>
+    <link rel="stylesheet" />
+    <title>Add Blog</title>
     <style>
       .navbar-nav {
         margin-left: auto;
@@ -139,43 +139,44 @@
     </style>
   </head>
   <body>
-   <!-- Navbar -->
+    <!-- Navbar -->
   <?php include __DIR__ . '/../layouts/navbar-admin.php'; ?>
 
     <div class="Upload">
       <div class="form-header">
-        <h2>Tambah produk</h2>
+        <h2>Tambah artikel</h2>
       </div>
-      <form action="<?=BASEURL?>/shop" method="post" enctype="multipart/form-data">
+
+      <form action="<?=BASEURL?>/adminBlog/insertBlog" method="post" enctype="multipart/form-data">
         <div class="form-group">
-          <label for="product-name">Nama produk</label>
+          <label for="product-name">Judul artikel</label>
           <input
             type="text"
             id="product-name"
-            name="nama"
-            placeholder="nama produk"
+            name="judul"
+            placeholder="Judul"
           />
         </div>
         <div class="form-group">
-          <label for="category">Kategori</label>
+          <label for="category">Isi detail</label>
           <input
             type="text"
             id="category"
-            name="kategori"
-            placeholder="kategori"
+            name="isi"
+            placeholder="Masukkan Isi Berita"
           />
         </div>
         <div class="form-group">
-          <label for="price">Harga</label>
-          <input type="number" id="price" name="harga" placeholder="harga" />
-        </div>
+          <label for="tanggal">Tanggal Upload</label>
+          <input type="date" value="today" class="form-control" name="tanggal" id="tanggal" placeholder="Tanggal Upload Berita">
+        </div>
         <div class="form-group">
           <label for="image-upload">Upload gambar</label>
           <div class="image-upload" onclick="document.getElementById('image-upload').click();">
             <input
               type="file"
               id="image-upload"
-              name="image-upload"
+              name="gambar"
               accept="image/*"
               onchange="previewFile()"
             />
@@ -194,6 +195,20 @@
 
     <!-- Footer -->
     <?php include __DIR__ . '/../layouts/footer.php'; ?>
+
+    <script>
+        // Fungsi untuk mendapatkan tanggal hari ini dalam format YYYY-MM-DD
+        function getTodayDate() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        // Atur nilai input tanggal menjadi tanggal hari ini
+        document.getElementById('tanggal').value = getTodayDate();
+    </script>
 
     <script>
       function previewFile() {

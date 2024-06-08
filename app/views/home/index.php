@@ -6,7 +6,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <style>
             .hero {
-                background: url("<?=BASEURLSrc?>/uploads/hero.png") no-repeat center center;
+                background: url("<?=BASEURL?>/uploads/hero.png") no-repeat center center;
                 background-size: cover;
                 height: 60%;
                 width: 100%;
@@ -66,17 +66,17 @@
 <div class=" mt-5">
   <div class="row">
     <div class="col text-center">
-      <img src="<?=BASEURLSrc?>/uploads/guci.png" alt="Guci" class="img-fluid">
+      <img src="<?=BASEURL?>/uploads/guci.png" alt="Guci" class="img-fluid">
       <p class="image-text">guci</p>
     </div>
 
     <div class="col text-center">
-      <img src="<?=BASEURLSrc?>/uploads/vas.png" alt="Vas Bunga" class="img-fluid">
+      <img src="<?=BASEURL?>/uploads/vas.png" alt="Vas Bunga" class="img-fluid">
       <p class="image-text">vas bunga</p>
     </div>
     
     <div class="col text-center">
-      <img src="<?=BASEURLSrc?>/uploads/piring.png" alt="Piring" class="img-fluid">
+      <img src="<?=BASEURL?>/uploads/piring.png" alt="Piring" class="img-fluid">
       <p class="image-text">piring</p>
     </div>
   </div>
@@ -89,110 +89,26 @@
 
 <div class="container">
   <div class="row">
+  <?php foreach($data['produk'] as $produk) : ?>
     <div class="col-md-3">
+    
       <div class="card" style="width: 18rem;">
-        <img src="<?=BASEURLSrc?>/uploads/produk/produk1.png" class="card-img-top" alt="...">
+      <img src="<?=BASEURL?>/uploads/produk/<?= $produk['gambar']?>" alt="Produk 1" />
         <div class="card-body">
-          <h5 class="card-title">Nama produk</h5>
-          <p class="card-text">kategori</p>
-          <p class="card-text">Rp harga</p>
+          <h5 class="card-title"><?= $produk['nama']?></h5>
+          <p class="card-text"><?= $produk['kategori']?></p>
+          <p class="card-text">Rp <?= $produk['harga']?></p>
           <a href="#" class="btn btn-primary btn-card">pesan</a>
         </div>
       </div>
     </div>
-
-    <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-      <img src="<?=BASEURLSrc?>/uploads/produk/produk2.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nama produk</h5>
-          <p class="card-text">kategori</p>
-          <p class="card-text">Rp harga</p>
-          <a href="#" class="btn btn-primary btn-card">pesan</a>
-        </div>
-      </div>
+    <?php endforeach; ?>
+    </div>
     </div>
 
-    <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-      <img src="<?=BASEURLSrc?>/uploads/produk/produk3.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nama produk</h5>
-          <p class="card-text">kategori</p>
-          <p class="card-text">Rp harga</p>
-          <a href="#" class="btn btn-primary btn-card">pesan</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-      <img src="<?=BASEURLSrc?>/uploads/produk/produk4.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nama produk</h5>
-          <p class="card-text">kategori</p>
-          <p class="card-text">Rp harga</p>
-          <a href="#" class="btn btn-primary btn-card">pesan</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="row mt-5">
-    <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-        <img src="<?=BASEURLSrc?>/uploads/produk/produk1.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nama produk</h5>
-          <p class="card-text">kategori</p>
-          <p class="card-text">Rp harga</p>
-          <a href="#" class="btn btn-primary btn-card">pesan</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-      <img src="<?=BASEURLSrc?>/uploads/produk/produk2.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nama produk</h5>
-          <p class="card-text">kategori</p>
-          <p class="card-text">Rp harga</p>
-          <a href="#" class="btn btn-primary btn-card">pesan</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-      <img src="<?=BASEURLSrc?>/uploads/produk/produk3.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nama produk</h5>
-          <p class="card-text">kategori</p>
-          <p class="card-text">Rp harga</p>
-          <a href="#" class="btn btn-primary btn-card">pesan</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-      <img src="<?=BASEURLSrc?>/uploads/produk/produk4.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nama produk</h5>
-          <p class="card-text">kategori</p>
-          <p class="card-text">Rp harga</p>
-          <a href="#" class="btn btn-primary btn-card">pesan</a>
-        </div>
-      </div>
-    </div>
-
+  
     <!-- Footer -->
     <?php include __DIR__ . '/../layouts/footer.php'; ?>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-    </body>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </html>

@@ -52,11 +52,11 @@
                 <form action="<?=BASEURL?>/auth/login_process" method="post">
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" class="form-control" name="username" id="username" placeholder="Masukkan nama pengguna">
+                        <input type="text" class="form-control" name="username" id="username" placeholder="Masukkan nama pengguna" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan kata sandi">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan kata sandi" required>
                     </div>
                     <button type="submit" value="Login" class="btn btn-dark btn-block">Login</button>
                     <p class="text-center mt-3">Belum punya akun? <a href="<?=BASEURL?>/auth/register">Daftar</a></p>
@@ -65,7 +65,7 @@
                     </div>
                 </form>
             </div>
-            <img src="http://localhost/keramik-dinoyo/app/uploads/logo.jpg" alt="Deskripsi Gambar" class="register-image">
+            <img src="<?=BASEURL?>/uploads/logo.jpg" alt="Deskripsi Gambar" class="register-image">
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

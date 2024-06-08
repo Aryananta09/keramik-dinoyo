@@ -119,6 +119,9 @@
       bottom: 20px;
       right: 20px;
     }
+    .flasher{
+        margin-top : 40px;
+    }
   </style>
 </head>
 
@@ -129,7 +132,7 @@
   <div id="hero" class="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="<?=BASEURLSrc?>/uploads/heroBlog.png" hero-shop class="d-block w-100" />
+        <img src="<?=BASEURL?>/uploads/heroBlog.png" hero-shop class="d-block w-100" />
         <div class="text-container">
           <div class="text-top">Manage Blog</div>
           <div class="text-bottom">Home > Manage Blog</div>
@@ -140,30 +143,31 @@
 
   <main>
   <div class="container mt-5">
-    <a href="<?=BASEURL?>/admin/blogForm" class="btn-primary">Tambah Artikel</a>
-  </div> 
+    <a href="<?=BASEURL?>/adminBlog/blogForm" class="btn-primary">Tambah Artikel</a>
+  
+
+  <div class="col-6 flasher">
+    <?php Flasher::flash(); ?></div>
+    </div> 
+
     <div class="container-product mt-5">
       <div class="product-list">
+      <?php foreach($data['blog'] as $blog) : ?>
         <div class="product-item">
-          <img src="Blog1.png" alt="Blog 1">
-          <h3>Produk baru, diffuser cantik</h3>
-          <p>23 Mei 2024</p>
-          <button class="delete-btn">Hapus</button>
+          <img src="<?=BASEURL?>/uploads/blog/<?= $blog['gambar']?>" alt="Blog 1">
+          <h3><?= $blog['judul']?> </h3>
+          <p><?= $blog['formatted_tanggal']?></p>
+          <a href="<?=BASEURL?>/adminBlog/hapus/<?= $blog['id_blog'] ?>" class="badge badge-danger float-right"
+              onclick="return confirm('Yakin?')" >Delete</a>
         </div>
-        <div class="product-item">
-          <img src="Blog2.png" alt="Blog 2">
-          <h3>Pembukaan kelas pembuatan keramik</h3>
-          <p>23 Mei 2024</p>
-          <button class="delete-btn">Hapus</button>
-        </div>
+        <?php endforeach;   ?>
       </div>
+      
   </main>
 
   <!-- Footer -->
   <?php include __DIR__ . '/../layouts/footer.php'; ?>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-</body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
 </html>

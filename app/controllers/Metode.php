@@ -14,7 +14,7 @@ Class Metode extends Controller{
             exit;
         }
         else{
-            Flasher::setFlash('Gagal', 'Ditambahkan', 'success');
+            Flasher::setFlash('Gagal', 'Ditambahkan', 'danger');
             header('Location: ' . BASEURL . '/metode/' . $id);
             exit;
         }
@@ -28,7 +28,7 @@ Class Metode extends Controller{
             exit;
         }
         else{
-            Flasher::setFlash('Gagal', 'Dihapus', 'success');
+            Flasher::setFlash('Gagal', 'Dihapus', 'danger');
             header('Location: ' . BASEURL . '/metode/' . $id);
             exit;
         }

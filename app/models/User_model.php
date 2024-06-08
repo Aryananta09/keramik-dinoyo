@@ -19,9 +19,11 @@ class User_Model {
     public function insert($data)
     {
         $pass = $data['password'];
+        $hashedPassword = password_hash($pass, PASSWORD_BCRYPT);
+
         $this->db->query("INSERT INTO users VALUES ('', :username , :pass , 'user')");
         $this->db->bind('username', $data['username']);
-        $this->db->bind('pass', $data['password']);
+        $this->db->bind('pass', $hashedPassword);
 
         $this->db->exec();
         return $this->db->rowCount();

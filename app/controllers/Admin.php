@@ -3,18 +3,26 @@
 Class Admin extends Controller{
 
     public function index(){
-        $this->view('admin/index');
+        $data['pesanan'] = $this->Model('PesananModel')->getAllPesanan();
+        $data['nomor_row'] = 1;
+        $this->view('admin/index', $data);
+    } 
+    public function formEdit($id){
+        $data['pesanan'] = $this->Model('PesananModel')-> getPesananByID($id);
+        $this->view('admin/formEdit', $data);
     }
-    public function blog(){
-        $this->view('admin/manageBlog');
+
+    public function update(){
+        if($this->Model('PesananModel')-> update($_POST)>0){
+            Flasher::setFlash('Berhasil', 'Diupdate', 'success');
+            header('Location: ' . BASEURL . '/admin');
+            exit;
+        }
+        else{
+            Flasher::setFlash('Gagal', 'Diupdate', 'danger');
+            header('Location: ' . BASEURL . '/admin');
+            exit;
+        }
     }
-    public function product(){
-        $this->view('admin/manageProduct');
-    }
-    public function blogForm(){
-        $this->view('admin/addBlog');
-    }
-    public function productForm(){
-        $this->view('admin/addProduct');
-    }
+
 }

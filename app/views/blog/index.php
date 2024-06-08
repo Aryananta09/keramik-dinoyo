@@ -81,7 +81,7 @@
     <div id="hero" class="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="<?=BASEURLSrc?>/uploads/heroBlog.png" class="d-block w-100" />
+          <img src="<?=BASEURL?>/uploads/heroBlog.png" class="d-block w-100" />
           <div class="text-container">
             <div class="text-top">Blog</div>
             <div class="text-bottom">Home > Blog</div>
@@ -91,37 +91,28 @@
     </div>
 
     <main>
+      <?php foreach($data['blog'] as $blog) :?>
       <div class="content">
         <article class="flex-article">
-          <img src="<?=BASEURLSrc?>/uploads/Blog1.png" alt="Produk baru, difusser cantik" />
+          <img src="<?=BASEURL?>/uploads/blog/<?=$blog['gambar']?>" alt="Produk baru, difusser cantik" />
           <div class="text-content">
             <div class="post-info">
-              <span>Admin</span> | <span>23 Mei 2024</span> |
-              <span>Dekorasi</span>
+              <span>Admin</span> | <span><?=$blog['formatted_tanggal']?></span>
             </div>
-            <h2>Produk baru, difusser cantik</h2>
+            <h2><? $blog['judul']?> </h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Mus
-              mauris vitae ultricies leo integer malesuada nunc. In nulla
-              posuere sollicitudin aliquam ultrices. Morbi blandit cursus risus
-              at ultrices mi tempus imperdiet. Libero enim sed faucibus turpis
-              in. Cursus mattis molestie a iaculis at erat. Nibh cras pulvinar
-              mattis nunc sed blandit libero. Pellentesque elit ullamcorper
-              dignissim cras tincidunt. Pharetra et ultrices neque ornare aenean
-              euismod elementum.
+              <?= $blog['isi'] ?>
             </p>
           </div>
         </article>
       </div>
+      <?php endforeach; ?>
     </main>
 
     <!-- Footer -->
     <?php include __DIR__ . '/../layouts/footer.php'; ?>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-    </body>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>

@@ -112,6 +112,77 @@
   /* #heroImage {
       padding-top: 70px;
     } */
+
+    .container-product {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      /* a.btn-primary {
+      padding: 15px 35px;
+      border-radius: 4px;
+      background-color: #FF6F6F;
+      border-color: #FF6F6F;
+      }
+
+  a.btn-primary:hover{
+    background-color: #C79B91;
+    border-color: #C79B91;
+} */
+
+      a.btn-primary {
+        padding: 15px 35px;
+        border-radius: 4px;
+        background-color: #FF6F6F;
+        border-color: #FF6F6F;
+        max-width: 15%;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        display: flex;
+        align-items: flex-start;
+        font-size: 18px;
+        font-family: "Poppins Light", sans-serif;
+        text-align: center;
+      }
+
+      .product-list {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+
+      .product-item {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin: 10px;
+        text-align: left;
+        width: 270px;
+        position: relative;
+      }
+
+      .product-item img {
+        width: 100%;
+        border-radius: 8px;
+      }
+
+      .product-item h3 {
+        font-size: 24px;
+        font-family: "Poppins Light", sans-serif;
+        margin: 10px 0 5px;
+      }
+
+      .product-item p {
+        font-size: 16px;
+        font-family: "Poppins Light", sans-serif;
+        margin: 5px 0;
+        color: #777;
+      }
   </style>
   </head>
   <body>
@@ -122,7 +193,7 @@
 <div><div id="heroImage" class="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-    <img src="http://localhost/phpmvc/app/uploads/heroshop.png" class="d-block w-100 " alt="Hero Image">
+    <img src="<?=BASEURL?>/uploads/heroshop.png" class="d-block w-100 " alt="Hero Image">
       <div class= "text-container">
         <div class="text-top">Shop</div>
         <div class="text-bottom">Home > Shop</div>
@@ -135,136 +206,23 @@
   <h1 class="produk-text">Produk Kami</h1>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-        <img src="<?=BASEURLSrc?>/uploads/produk/produk1.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nama produk</h5>
-          <p class="card-text">kategori</p>
-          <p class="card-text">Rp harga</p>
-          <a href="#" class="btn btn-primary btn-card">pesan</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-      <img src="<?=BASEURLSrc?>/uploads/produk/produk2.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nama produk</h5>
-          <p class="card-text">kategori</p>
-          <p class="card-text">Rp harga</p>
-          <a href="#" class="btn btn-primary btn-card">pesan</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-      <img src="<?=BASEURLSrc?>/uploads/produk/produk3.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nama produk</h5>
-          <p class="card-text">kategori</p>
-          <p class="card-text">Rp harga</p>
-          <a href="#" class="btn btn-primary btn-card">pesan</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-      <img src="<?=BASEURLSrc?>/uploads/produk/produk4.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nama produk</h5>
-          <p class="card-text">kategori</p>
-          <p class="card-text">Rp harga</p>
-          <a href="#" class="btn btn-primary btn-card">pesan</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="row mt-5">
-    <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-        <img src="<?=BASEURLSrc?>/uploads/produk/produk1.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nama produk</h5>
-          <p class="card-text">kategori</p>
-          <p class="card-text">Rp harga</p>
-          <a href="#" class="btn btn-primary btn-card">pesan</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-      <img src="<?=BASEURLSrc?>/uploads/produk/produk2.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nama produk</h5>
-          <p class="card-text">kategori</p>
-          <p class="card-text">Rp harga</p>
-          <a href="#" class="btn btn-primary btn-card">pesan</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-      <img src="<?=BASEURLSrc?>/uploads/produk/produk3.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nama produk</h5>
-          <p class="card-text">kategori</p>
-          <p class="card-text">Rp harga</p>
-          <a href="#" class="btn btn-primary btn-card">pesan</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-      <img src="<?=BASEURLSrc?>/uploads/produk/produk4.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nama produk</h5>
-          <p class="card-text">kategori</p>
-          <p class="card-text">Rp harga</p>
-          <a href="#" class="btn btn-primary btn-card">pesan</a>
-        </div>
-      </div>
-    </div>
-
-<div class="container">
-  <div class="row">
-    <?php
-    if ($produk->num_rows > 0) {
-        while ($row = $produk->fetch_assoc()) {
-    ?>
-      <div class="col-md-3 mb-4">
-        <a href="?c=produk&m=detail&id=<?php echo $row["id"]; ?>" class="text-decoration-none text-dark">
-          <div class="card">
-            <img src="<?php echo $row["gambar"]; ?>" class="card-img-top" alt="Destinasi">
-            <div class="card-body">
-              <h5 class="card-title"><?php echo $row["nama"]; ?></h5>
-              <p class="kategori"><?php echo $row["kategori"]; ?></p>
-              <p class="harga">Rp. <?php echo $row["harga"]; ?></p>
-              <div class="mt-auto">
-                <a href="?c=produk&m=detail&id=<?php echo $row["id"]; ?>" class="btn btn-primary w-100">Lihat Detail</a>
-              </div>
-            </div>
+<main>
+    <div class="container mt-5">
+      <div class="container-product">
+        <div class="product-list">
+        <?php foreach($data['produk'] as $produk) : ?>
+          <div class="product-item">
+            <img src="<?=BASEURL?>/uploads/produk/<?= $produk['gambar']?>" alt="Produk 1" />
+            <h3><?= $produk['nama']?></h3>
+            <p><?= $produk['kategori']?></p>
+            <p>Rp <?= $produk['harga']?></p>
           </div>
-        </a>
+          <?php endforeach; ?>
+          
+        </div>
       </div>
-    <?php
-        }
-    } else {
-        echo '<p class="text-center">Tidak ada produk yang tersedia.</p>';
-    }
-    ?>
-  </div>
-</div>
+      </div> 
+    </main>
 
     
 <!-- Footer -->

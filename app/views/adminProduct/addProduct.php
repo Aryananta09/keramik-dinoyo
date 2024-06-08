@@ -9,8 +9,8 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" />
-    <title>Add Blog</title>
+    <link rel="stylesheet"/>
+    <title>Add Product</title>
     <style>
       .navbar-nav {
         margin-left: auto;
@@ -139,31 +139,35 @@
     </style>
   </head>
   <body>
-    <!-- Navbar -->
+   <!-- Navbar -->
   <?php include __DIR__ . '/../layouts/navbar-admin.php'; ?>
 
     <div class="Upload">
       <div class="form-header">
-        <h2>Tambah artikel</h2>
+        <h2>Tambah produk</h2>
       </div>
-      <form>
+      <form action="<?=BASEURL?>/adminProduct/insertProduct" method="post" enctype="multipart/form-data">
         <div class="form-group">
-          <label for="product-name">Judul artikel</label>
+          <label for="product-name">Nama produk</label>
           <input
             type="text"
             id="product-name"
-            name="product-name"
+            name="nama"
             placeholder="nama produk"
           />
         </div>
         <div class="form-group">
-          <label for="category">Isi detail</label>
+          <label for="category">Kategori</label>
           <input
             type="text"
             id="category"
-            name="category"
+            name="kategori"
             placeholder="kategori"
           />
+        </div>
+        <div class="form-group">
+          <label for="price">Harga</label>
+          <input type="number" id="price" name="harga" placeholder="harga" />
         </div>
         <div class="form-group">
           <label for="image-upload">Upload gambar</label>
@@ -171,7 +175,7 @@
             <input
               type="file"
               id="image-upload"
-              name="image-upload"
+              name="gambar"
               accept="image/*"
               onchange="previewFile()"
             />

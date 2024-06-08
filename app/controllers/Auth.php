@@ -9,27 +9,34 @@ class Auth extends Controller {
     }
 
     public function login_process()
-    {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $user = $this->Model('User_model')->getByUsername($username);
+{
+    // Ambil data dari form
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-        if ($user && $password === $user['password']) {
-            session_start();
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['role'] = $user['role'];
+    // Ambil user dari database berdasarkan username
+    $user = $this->Model('User_model')->getByUsername($username);
 
-            if ($user['role'] == 'admin'){
-                header('Location: ' . BASEURL . '/admin/index.php'); 
-            }
-            else{
-                header('Location: ' . BASEURL );
-            }
+    // Jika user ditemukan dan password benar
+    if ($user && password_verify($password, $user['password'])) {
+        // Mulai sesi
+        session_start();
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['role'] = $user['role'];
+
+        // Redirect berdasarkan role
+        if ($user['role'] == 'admin') {
+            header('Location: ' . BASEURL . '/admin/index.php');
         } else {
-            echo "Invalid login credentials.";
+            header('Location: ' . BASEURL);
         }
+    } else {
+        // Jika login gagal
+        echo "Invalid login credentials.";
     }
+}
+
 
     public function register(){
         $this->view('auth/register');

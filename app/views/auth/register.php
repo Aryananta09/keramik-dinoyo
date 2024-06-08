@@ -43,30 +43,41 @@
             <div class="register-container">
                 <h2 class="form-header">Registrasi</h2>
                 <p class="form-text">Buat Akun</p>
-                <form action="<?=BASEURL?>/auth/register_process" method="post">
+                <form id="registerForm" action="<?=BASEURL?>/auth/register_process" method="post">
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" class="form-control" name="username" id="username" placeholder="Masukkan nama pengguna">
+                        <input type="text" class="form-control" name="username" id="username" placeholder="Masukkan nama pengguna" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan kata sandi">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan kata sandi" required>
                     </div>
                     <div class="form-group">
                         <label for="password-confirm">Confirm Password</label>
-                        <input type="password" class="form-control" name="password_confirm" id="password-confirm" placeholder="Masukkan kata sandi kembali">
+                        <input type="password" class="form-control" name="password_confirm" id="password-confirm" placeholder="Masukkan kata sandi kembali" required>
                     </div>
                     <button type="submit" value="Register" class="btn btn-dark btn-block">Daftar</button>
                     <p class="text-center mt-3">Sudah punya akun? <a href="<?=BASEURL?>/auth/login">Masuk</a></p>
         
                 </form>
             </div>
-            <img src="<?=BASEURL?>uploads/logo.jpg" alt="Deskripsi Gambar" class="register-image">
+            <img src="<?=BASEURL?>/uploads/logo.jpg" alt="Deskripsi Gambar" class="register-image">
         </div>
     </div>  
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('password-confirm').value;
+
+            if (password !== confirmPassword) {
+                event.preventDefault();
+                alert('Password dan Konfirmasi Password tidak cocok!');
+            }
+        });
+    </script>
 </body>
 </html>
