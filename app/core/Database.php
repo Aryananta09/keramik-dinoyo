@@ -22,7 +22,7 @@ class Database{
         } catch(PDOException $e){
             die($e->getMessage());
         }
-    }
+    }       
 
     public function query($query){
         $this->stmt = $this->dbh->prepare($query);
