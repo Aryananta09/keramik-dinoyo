@@ -1,0 +1,3 @@
+1. admin, password : admin123
+2. awwal, password : inipassword
+3. naufal, password : anjaymabar 
